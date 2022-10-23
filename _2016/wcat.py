@@ -115,7 +115,7 @@ class ClosedLoopScene(Scene):
         ] + [Animation(self.dots)]
 
     def get_dot_alphas(self, dots = None, precision = 0.005):
-        if dots == None:
+        if dots is None:
             dots = self.dots
         alphas = []
         alpha_range = np.arange(0, 1, precision)

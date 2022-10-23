@@ -129,7 +129,7 @@ class EquationSolver1d(GraphScene, ZoomedScene):
         self.graph = self.get_graph(self.func)
         self.add(self.graph)
 
-        if self.graph_label != None:
+        if self.graph_label is not None:
             curve_label = self.get_graph_label(self.graph, self.graph_label, 
                 x_val = 4, direction = LEFT)
             curve_label.shift(LEFT)
@@ -368,7 +368,7 @@ class EquationSolver1d(GraphScene, ZoomedScene):
             )
             self.play(ShowCreation(midXLine))
             midDot = Dot(midCoords, color = sign_color)
-            if(self.iteration_at_which_to_start_zoom != None and 
+            if(self.iteration_at_which_to_start_zoom is not None and 
                 i >= self.iteration_at_which_to_start_zoom):
                 midDot.scale(inverseZoomFactor)
             self.add(midDot)
@@ -597,7 +597,7 @@ def walker_animation_with_display(
         **kwargs)
     walker = walker_anim.compound_walker.walker
 
-    if number_update_func != None:
+    if number_update_func is not None:
         display = DecimalNumber(0, 
             num_decimal_places = num_decimal_places, 
             fill_color = WHITE if include_background_rectangle else BLACK,
@@ -1063,7 +1063,7 @@ class EquationSolver2d(ColorMappedObjectsScene):
         def match_style_with_bg(obj1, obj2):
             obj1.match_style(obj2)
             bg = obj2.get_background_image_file()
-            if bg != None:
+            if bg is not None:
                 obj1.color_using_background_image(bg)
 
         run_time_base = 1
@@ -1077,12 +1077,12 @@ class EquationSolver2d(ColorMappedObjectsScene):
 
         # Helper functions for manual_wind_override
         def head(m):
-            if m == None:
+            if m is None:
                 return None
             return m[0]
 
         def child(m, i):
-            if m == None or m == 0:
+            if m is None or m == 0:
                 return None
             return m[i + 1]
 
@@ -1163,7 +1163,7 @@ class EquationSolver2d(ColorMappedObjectsScene):
                 anim = AnimationGroup(anim, cursor_anim)
 
             override_wind = head(manual_wind_override)
-            if override_wind != None:
+            if override_wind is not None:
                 total_wind = override_wind
             else:
                 total_wind = round(wind_so_far)
@@ -1387,7 +1387,7 @@ class OdometerScene(ColorMappedObjectsScene):
         self.add(caption)
 
         display_val_bias = 0
-        if self.biased_display_start != None:
+        if self.biased_display_start is not None:
             display_val_bias = self.biased_display_start - self.rotate_func(0)
         display_func = lambda alpha : self.rotate_func(alpha) + display_val_bias
 

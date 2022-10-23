@@ -135,7 +135,7 @@ class LightIndicator(Mobject):
         return intensity
 
     def update_mobjects(self):
-        if self.light_source == None:
+        if self.light_source is None:
             print("Indicator cannot update, reason: no light source found")
         self.set_intensity(self.measured_intensity())
 
@@ -170,7 +170,7 @@ class ScaleLightSources(Transform):
 
     def __init__(self, light_sources_mob, factor, about_point = None, **kwargs):
 
-        if about_point == None:
+        if about_point is None:
             about_point = light_sources_mob.get_center()
 
         ls_target = light_sources_mob.copy()
@@ -3211,7 +3211,7 @@ class PondScene(ThreeDScene):
             hyp.add(hyp2,hyp1)
             self.new_hypotenuses.append(hyp)
 
-            if show_steps == True:
+            if show_steps is True:
                 self.play(
                     ShowCreation(hyp, run_time = run_time)
                 )
@@ -3221,7 +3221,7 @@ class PondScene(ThreeDScene):
             self.new_legs_1.append(leg1)
             self.new_legs_2.append(leg2)
 
-            if show_steps == True:
+            if show_steps is True:
                 self.play(
                     ShowCreation(leg1, run_time = run_time),
                     ShowCreation(leg2, run_time = run_time),
@@ -3231,7 +3231,7 @@ class PondScene(ThreeDScene):
 
 
             ls2 = ls1.copy()
-            if animate == True:
+            if animate is True:
                 self.add(ls2)
 
             self.additional_light_sources.append(ls2)
@@ -3278,7 +3278,7 @@ class PondScene(ThreeDScene):
 
             # first, fade out all of the hypotenuses and altitudes
 
-            if show_steps == True:
+            if show_steps is True:
                 self.zoomable_mobs.remove(self.hypotenuses, self.altitudes, self.inner_lake)
                 self.play(
                     FadeOut(self.hypotenuses),
@@ -3302,7 +3302,7 @@ class PondScene(ThreeDScene):
             )
             new_outer_lake.move_to(self.lake_center)
 
-            if show_steps == True: 
+            if show_steps is True: 
                 self.play(
                     FadeIn(new_outer_lake, run_time = run_time),
                     FadeIn(self.ls0_dot)
@@ -3324,7 +3324,7 @@ class PondScene(ThreeDScene):
             self.new_legs_2 = []
             self.new_hypotenuses = []
 
-            if simultaneous_splitting == False:
+            if simultaneous_splitting is False:
 
                 for i in range(2**n):
                     
@@ -3444,7 +3444,7 @@ class PondScene(ThreeDScene):
             )
             self.zoomable_mobs.add(self.light_sources, self.inner_lake, self.outer_lake)
 
-            if show_steps == True:
+            if show_steps is True:
                 self.add(
                     self.legs,
                     self.hypotenuses,
@@ -3455,7 +3455,7 @@ class PondScene(ThreeDScene):
 
             self.wait()
 
-            if show_steps == True:
+            if show_steps is True:
                 self.play(FadeOut(self.ls0_dot))
 
             #self.lake_center = ls0_loc = self.obs_dot.get_center() + self.lake_radius * UP
